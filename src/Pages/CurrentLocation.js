@@ -11,7 +11,9 @@ const CurrentLocation = () => {
     const showPosition = async (position) => {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
-        console.log(latitude, longitude);
+        const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${latitude}8%2C${longitude}?key=A89PC56MCH4AQE4YQL99XAAQW`);
+        const data = await response.json();
+        console.log(latitude, longitude, data);
     }
     React.useEffect(() => {
         getPosition();

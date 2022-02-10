@@ -4,6 +4,7 @@ import Home from './Pages/Home';
 import Search from './Pages/Search';
 import Results from './Pages/Results';
 import './Styles/Styles.css';
+import CurrentLocation from './Pages/CurrentLocation';
 
 const App = () => {
     return (
@@ -13,6 +14,7 @@ const App = () => {
                     <Route exact path="/" component={Home}/>
                     <Route path="/searchpage" component={Search}/>
                     <Route path="/results/:city" component={Results}/>
+                    <Route path="/currentLocation" component={CurrentLocation}/>
                 </Switch>
             </Router>
         </div>

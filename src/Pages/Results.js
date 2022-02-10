@@ -73,6 +73,9 @@ const Results = ({ match, history }) => {
                 <button type="button" onClick={() => {
                     history.push("/searchpage");
                 }} className="button-content">Back to search</button>
+                <button type="button" onClick={() => {
+                    history.push("/currentLocation");
+                }} className="button-content">Weather information for your current location</button>
             </div>
         </center>
     );

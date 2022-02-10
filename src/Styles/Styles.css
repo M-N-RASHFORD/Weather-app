@@ -1,0 +1,32 @@
+body {
+    padding: 15px;
+    margin: 0;
+    box-sizing: border-box;
+    background: url("../Images/weather-1.jpg") center no-repeat;
+    background-size: cover;
+    font-family: century gothic;
+}
+.input-content{
+    width: 20%;
+    padding: 5px;
+    margin: 5px;
+    outline: none;
+    border: none;
+    font-family: century gothic;
+    font-size: 1em;
+}
+.button-content{
+    border: 1px solid #000;
+    padding: 5px;
+    font-size: 1em;
+    font-family: century gothic;
+    margin: 5px;
+    background-color: #000;
+    color: #fff;
+    border-radius:0;
+    outline: 0;
+}
+ul li{
+    list-style-type: none;
+    text-decoration: none;
+}

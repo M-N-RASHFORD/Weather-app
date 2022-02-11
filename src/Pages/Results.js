@@ -6,11 +6,18 @@ const Results = ({ match, history }) => {
     const [todayData, setTodayData] = React.useState([]);
     const [tomorrowData, setTomorrowData] = React.useState([]);
     const [tomorrowDataButOne, setTomorrowDataButOne] = React.useState([]);
-    const dateObject = {
+    const date = new Date();
+    const getYear = date.getFullYear();
+    const getMonth = (date.getMonth() + 1);
+    const getDay = (date.getDay() + 6);
+    const dateToday = `${getYear}-${getMonth}-${getDay}`;
+    const dateTommorow = `${getYear}-${getMonth}-${getDay+1}`;
+    const dateTommorowButOne = `${getYear}-${getMonth}-${getDay+2}`;
+    /*const dateObject = {
         date: new Date(), getYear: date.getFullYear(), getMonth: (date.getMonth() + 1),
         getDay: (date.getDay() + 6), dateToday: `${getYear}-${getMonth}-${getDay}`,
-        dateTommorow: `${getYear}-${getMonth}-${getDay+1}`, dateTommorowButOne: ${getYear}-${getMonth}-${getDay+2}
-    };
+        dateTommorow: `${getYear}-${getMonth}-${getDay+1}`, dateTommorowButOne: `${getYear}-${getMonth}-${getDay+2}`
+    };*/
     const city = match.params.city;
     const weatherData = async (val) => {
         const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?key=A89PC56MCH4AQE4YQL99XAAQW `);
@@ -20,18 +27,18 @@ const Results = ({ match, history }) => {
         let getTomorrow;
         let getDayAfterTomorrow;
         if (`${getMonth}`.length < 2) {
-            getDate = `${dateObject.getYear}-0${dateObject.getMonth}-${dateObject.getDay}`;
-            getTomorrow = `${dateObject.getYear}-0${dateObject.getMonth}-${dateObject.getDay+1}`;
-            getDayAfterTomorrow = `${dateObject.getYear}-0${dateObject.getMonth}-${dateObject.getDay+2}`
-        } else if (`${dateObject.getDay}`.length < 2) {
-            getDate = `${dateObject.getYear}-${dateObject.getMonth}-0${dateObject.getDay}`
-            getTomorrow = `${dateObject.getYear}-${dateObject.getMonth}-0${dateObject.getDay+1}`;
-            getDayAfterTomorrow = `${dateObject.getYear}-${dateObject.getMonth}-0${dateObject.getDay+2}`;
+            getDate = `${getYear}-0${getMonth}-${getDay}`;
+            getTomorrow = `${getYear}-0${getMonth}-${getDay+1}`;
+            getDayAfterTomorrow = `${getYear}-0${getMonth}-${getDay+2}`
+        } else if (`${getDay}`.length < 2) {
+            getDate = `${getYear}-${getMonth}-0${getDay}`
+            getTomorrow = `${getYear}-${getMonth}-0${getDay+1}`;
+            getDayAfterTomorrow = `${getYear}-${getMonth}-0${getDay+2}`;
 
         } else {
-            getDate = `${dateObject.getYear}-${dateObject.getMonth}-${dateObject.getDay}`;
-            getTomorrow = `${dateObject.getYear}-${dateObject.getMonth}-${dateObject.getDay+1}`;
-            getDayAfterTomorrow = `${dateObject.getYear}-${dateObject.getMonth}-${dateObject.getDay+2}`;
+            getDate = `${getYear}-${getMonth}-${getDay}`;
+            getTomorrow = `${getYear}-${getMonth}-${getDay+1}`;
+            getDayAfterTomorrow = `${getYear}-${getMonth}-${getDay+2}`;
         }
         const _todayData = data.days.filter((value, index, array) => {
             if (array[index].datetime === getDate) {

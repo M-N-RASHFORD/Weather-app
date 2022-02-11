@@ -1,4 +1,5 @@
 import React from 'react';
+import Weatherdata from '..Components/Weatherdata';
 
 const CurrentLocation = () => {
     const getPosition = () => {
@@ -20,7 +21,8 @@ const CurrentLocation = () => {
     } ,[]);
     return (
         <center>
-            <h1>Your current location is makerere</h1>
+            <h1>Your current location is at (lat, lon): {latitude, longitude}</h1>
+
         </center>
     );
 }

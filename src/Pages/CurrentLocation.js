@@ -19,7 +19,7 @@ const CurrentLocation = ({ history }) => {
     }
     const getPosition = () => {
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
+            navigator.geolocation.watchPosition(showPosition);
         } else {
             alert("Browser does not support geolocation");
         }

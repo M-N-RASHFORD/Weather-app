@@ -2,7 +2,7 @@ body {
     padding: 15px;
     margin: 0;
     box-sizing: border-box;
-    background: url("../Images/weather-1.jpg") center no-repeat;
+   /* background: url("../Images/weather-1.jpg") center no-repeat;*/
     background-size: cover;
     font-family: century gothic;
 }
